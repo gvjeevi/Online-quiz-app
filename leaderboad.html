@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #61c4eb;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXm6ogDlAhtHNdzSDWkHGKVXOox_t82XRPxw&usqp=CAU);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height:100%;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #0d0e0e;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #e6afd9;
+        }
+        td{
+            background-color: rgb(174, 224, 234);
+        }
+        h1{
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard">
+            <!-- leaderboard data will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Sample data (you can replace this with dynamic data from a server)
+        const leaderboardData = [
+            { rank: 1, name: "Player 1", score: 25 },
+            { rank: 1, name: "Player 2", score: 25 },
+            { rank: 1, name: "Player 3", score: 25 },
+            { rank: 1, name: "Player 4", score: 25 },
+            { rank: 2, name: "Player 5", score: 24 },
+            {rank: 3, name: "Player 6", score: 23 },
+            { rank: 3, name: "Player 7", score: 23 },
+            { rank: 4, name: "Player 8", score: 21 },
+            { rank: 5, name: "Player 9", score: 20 },
+            { rank: 6, name: "Player 10", score: 18 },
+        ];
+
+        // Function to populate the leaderboard table
+        function populateLeaderboard() {
+            const leaderboardTable = document.getElementById('leaderboard');
+            leaderboardData.forEach((player) => {
+                const row = leaderboardTable.insertRow(-1);
+                const rankCell = row.insertCell(0);
+                const nameCell = row.insertCell(1);
+                const scoreCell = row.insertCell(2);
+                rankCell.textContent = player.rank;
+                nameCell.textContent = player.name;
+                scoreCell.textContent = player.score;
+            });
+        }
+
+        // Call the function to populate the leaderboard
+        populateLeaderboard();
+    </script>
+</body>
+</html>
